@@ -12,11 +12,13 @@ from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 from torch.utils.tensorboard import SummaryWriter
 from torch.utils.data import BatchSampler
-
+import torchbnn as bnn
 
 def train(args, model, device, X_train,y_train, optimizer, epoch):
     model.train()
     batch_size=20
+    kl_loss = bnn.BKLLoss(reduction='mean', last_layer_only=False)
+    kl_weight = 0.01
     sampler = BatchSampler(range(len(X_train)), batch_size=batch_size, drop_last=False)
     batch_idx=0
     for batch_indices in sampler:
@@ -29,14 +31,15 @@ def train(args, model, device, X_train,y_train, optimizer, epoch):
         for mc_run in range(args.num_mc):
             # output, kl = model(data)
             output = model(data)
-            kl=torch.tensor([0]).double().cuda()
+            kl = kl_loss(model)
+            # kl=torch.tensor([0]).double().cuda()
             output_.append(output)
             kl_.append(kl)
         output = torch.mean(torch.stack(output_), dim=0)
         kl = torch.mean(torch.stack(kl_), dim=0)
         Huber_loss = F.smooth_l1_loss(output[:,0], target)
         #ELBO loss
-        loss = Huber_loss + (kl / args.batch_size)
+        loss = Huber_loss + kl_weight*(kl / args.batch_size)
 
         loss.backward()
         optimizer.step()
@@ -53,6 +56,8 @@ def test(args, model, device, X_test,y_test, epoch):
     test_loss = 0
     abs_loss=0
     correct = 0
+    kl_loss = bnn.BKLLoss(reduction='mean', last_layer_only=False)
+    kl_weight = 0.01
     with torch.no_grad():
         batch_size = 1
         sampler = BatchSampler(range(len(X_test)), batch_size=batch_size, drop_last=False)
@@ -61,8 +66,10 @@ def test(args, model, device, X_test,y_test, epoch):
             data = X_test[batch_indices]
             target = y_test[batch_indices]
             data, target = torch.tensor(data).double().to(device), torch.tensor(target).double().to(device)
-            output, kl = model(data)
-            # output = model(data)
+            # output, kl = model(data)
+            output = model(data)
+            kl = kl_loss(model)
+
             # kl=torch.tensor([0]).double().cuda()
             test_loss += F.smooth_l1_loss(output[:,0], target, reduction='sum').item()+ (kl / args.batch_size)  # sum up batch loss
 
@@ -73,7 +80,7 @@ def test(args, model, device, X_test,y_test, epoch):
 
     print(
         '\nTest set: Average loss: {:.4f}, abs loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)\n'.format(
-            test_loss,abs_loss[0], correct, len(X_test),
+            test_loss.item(),abs_loss[0], correct, len(X_test),
             100. * correct / len(X_test)))
 
     val_accuracy = correct / len(X_test)
@@ -152,7 +159,7 @@ if __name__ == '__main__':
 
     # read the xlsx file into a pandas dataframe
     df = pd.read_excel('./AMEoutputexp.xlsx')
-
+    df = pd.read_csv('./FRDM12residualfile.csv')
     # convert the dataframe into a numpy array
     data = np.array(df)
 
@@ -160,8 +167,10 @@ if __name__ == '__main__':
     from sklearn.model_selection import train_test_split
 
     # assume X is your numpy array dataset and y is your target variable
-    X = np.array(data[:,(1,2,3)]).astype(np.float32)
-    y = np.array(data[:,13]).astype(np.float32)
+    # X = np.array(data[:,(1,2,3)]).astype(np.float32)
+    # y = np.array(data[:,13]).astype(np.float32)
+    X = np.array(data[:, (1, 2)]).astype(np.float32)
+    y = np.array(data[:, 3]).astype(np.float32)
 
     from sklearn.preprocessing import MinMaxScaler
 
@@ -186,7 +195,12 @@ if __name__ == '__main__':
     print("y_train shape:", y_train.shape)
     print("y_test shape:", y_test.shape)
 
-    model = FCN()
+    # model = FCN(in_c=2)
+    model = nn.Sequential(
+        bnn.BayesLinear(prior_mu=0, prior_sigma=0.01, in_features=2, out_features=32),
+        nn.ReLU(),
+        bnn.BayesLinear(prior_mu=0, prior_sigma=0.01, in_features=32, out_features=1),
+    )
     # model = FCN_Det()
     model = model.double().cuda()
     device = torch.device("cuda" if use_cuda else "cpu")

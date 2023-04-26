@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 # from simple_FCN import FCN
-from simple_FCN import FCN_Det
+# from simple_FCN import FCN_Det
+from simple_FCN import MixtureDensityNetwork
 import os
 import argparse
 import torch
@@ -16,26 +17,23 @@ from torch.utils.data import BatchSampler
 
 def train(args, model, device, X_train,y_train, optimizer, epoch):
     model.train()
-    batch_size=20
+    batch_size=100
     sampler = BatchSampler(range(len(X_train)), batch_size=batch_size, drop_last=False)
     batch_idx=0
+
     for batch_indices in sampler:
         data = X_train[batch_indices]
         target = y_train[batch_indices]
         data, target = torch.tensor(data).double().to(device), torch.tensor(target).double().to(device)
         optimizer.zero_grad()
         output_ = []
-        for mc_run in range(args.num_mc):
+        # for mc_run in range(args.num_mc):
 
-            output = model(data)
-            output_.append(output)
+        # output = model(data)
+        # output_.append(output)
 
-        output = torch.mean(torch.stack(output_), dim=0)
-
-        Huber_loss = F.smooth_l1_loss(output[:,0], target)
-        #ELBO loss
-        loss = Huber_loss
-
+        # output = torch.mean(torch.stack(output_), dim=0)
+        loss = model.loss(data, target)
         loss.backward()
         optimizer.step()
 
@@ -59,7 +57,7 @@ def test(args, model, device, X_test,y_test, epoch):
             data = X_test[batch_indices]
             target = y_test[batch_indices]
             data, target = torch.tensor(data).double().to(device), torch.tensor(target).double().to(device)
-            output = model(data)
+            output = model.forward(data)
             test_loss += F.smooth_l1_loss(output[:,0], target, reduction='sum').item()
 
             abs_error += np.abs(scaler.inverse_transform(np.array([output[:,0].item()]).reshape(-1, 1)).flatten()- scaler.inverse_transform(np.array([target.item()]).reshape(-1, 1)).flatten())
@@ -147,8 +145,8 @@ if __name__ == '__main__':
     torch.manual_seed(args.seed)
 
     # read the xlsx file into a pandas dataframe
-    # df = pd.read_excel('./AMEoutputexp.xlsx')
-    df = pd.read_csv('./FRDM12residualfile.csv')
+    df = pd.read_excel('./AMEoutputexp.xlsx')
+
     # convert the dataframe into a numpy array
     data = np.array(df)
 
@@ -156,10 +154,8 @@ if __name__ == '__main__':
     from sklearn.model_selection import train_test_split
 
     # assume X is your numpy array dataset and y is your target variable
-    # X = np.array(data[:,(1,2,3)]).astype(np.float32)
-    # y = np.array(data[:,13]).astype(np.float32)
-    X = np.array(data[:, (1, 2)]).astype(np.float32)
-    y = np.array(data[:, 3]).astype(np.float32)
+    X = np.array(data[:,(1,2,3)]).astype(np.float32)
+    y = np.array(data[:,13]).astype(np.float32)
 
     from sklearn.preprocessing import MinMaxScaler
 
@@ -184,15 +180,15 @@ if __name__ == '__main__':
     print("y_train shape:", y_train.shape)
     print("y_test shape:", y_test.shape)
 
-    model = FCN_Det(in_c=2)
+    model = MixtureDensityNetwork(num_mixtures=5)
     model = model.double().cuda()
     device = torch.device("cuda" if use_cuda else "cpu")
     lr = args.lr
 
     for epoch in range(1, args.epochs + 1):
         if epoch>0 and epoch%200==0:
-            lr=lr/2
-        optimizer = optim.Adadelta(model.parameters(), lr=args.lr)
+            lr=lr/0.9
+        optimizer = optim.Adam(model.parameters(), lr=args.lr,weight_decay=1e-5)
         scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
         train(args, model, device, X_train,y_train, optimizer, epoch)
         test(args, model, device, X_test,y_test, epoch)
