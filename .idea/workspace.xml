@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="319df3fe-3fa8-4a3e-b054-70176195078c" name="Changes" comment="delete test files">
+      <change afterPath="$PROJECT_DIR$/DZformatfile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FRDM12formatfile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WS4formatfile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WS4residualfile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hfb24formatfile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hfb24residualfile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MassPrediction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MassPrediction.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AMEoutputexp.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/AMEoutputexp.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DZresidualfile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DZresidualfile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRDM12residualfile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/FRDM12residualfile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moumouBNN.pth" beforeDir="false" afterPath="$PROJECT_DIR$/moumouBNN.pth" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,37 +65,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Biying Liu/Documents/GitHub/MassPrediction&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Biying Liu/Documents/GitHub/MassPrediction/MoumouPrediction_BNN.py",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="python MoumouPredictionBNN.py --test-batch-size=1&#10;    --mode=&quot;train&quot;&#10;    --save_dir=&quot;./&quot;&#10;    --num_monte_carlo=50&#10;    --lr=0.1&#10;    --epochs=1000" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="MoumouPredictionBNN.py&#10;" type="PythonConfigurationType" factoryName="Python">
       <module name="MassPrediction" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Biying Liu\Documents\GitHub\MassPrediction\virtualenvl_MassPrediction\Scripts\python.exe" />
-      <option name="SDK_NAME" value="Python 3.9 (MassPrediction)" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="MoumouPredictionBNN.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MoumouPrediction_BNN.py" />
       <option name="PARAMETERS" value="--test-batch-size=1 --mode=train --save_dir=./ --num_monte_carlo=50 --lr=0.1 --epochs=1000" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -109,6 +120,7 @@
       <workItem from="1683739448295" duration="73000" />
       <workItem from="1683741093334" duration="597000" />
       <workItem from="1683776110357" duration="711000" />
+      <workItem from="1685330781381" duration="1514000" />
     </task>
     <task id="LOCAL-00001" summary="try add virtual env">
       <created>1682631168537</created>
@@ -148,6 +160,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MassPrediction$MoumouPrediction_NN.coverage" NAME="MoumouPrediction_NN Coverage Results" MODIFIED="1682631007378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MassPrediction$MoumouPredictionBNN_py_.coverage" NAME="MoumouPredictionBNN.py&#10; Coverage Results" MODIFIED="1685331752731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MassPrediction$MoumouPrediction_BNN.coverage" NAME="MoumouPrediction_BNN Coverage Results" MODIFIED="1682632167433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MassPrediction$python_MoumouPredictionBNN_py___test_batch_size_1_______mode__train________save_dir____________num_monte_carlo_50_______lr_0_1_______epochs_1000.coverage" NAME="python MoumouPredictionBNN.py --test-batch-size=1&#10;    --mode=&quot;train&quot;&#10;    --save_dir=&quot;./&quot;&#10;    --num_monte_carlo=50&#10;    --lr=0.1&#10;    --epochs=1000 Coverage Results" MODIFIED="1682632219605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
