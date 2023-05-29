@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="319df3fe-3fa8-4a3e-b054-70176195078c" name="Changes" comment="try add virtual env" />
+    <list default="true" id="319df3fe-3fa8-4a3e-b054-70176195078c" name="Changes" comment="delete test files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +25,25 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="Biying712" />
+        <option name="repository" value="MassPrediction" />
+      </RepoCoordinatesHolder>
+    </option>
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3f575ed1-429a-4cd2-89df-ec5bf077bbc0" />
+        <option name="url" value="https://github.com/youbin2014/MassPrediction.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -43,10 +64,35 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="python MoumouPredictionBNN.py --test-batch-size=1&#10;    --mode=&quot;train&quot;&#10;    --save_dir=&quot;./&quot;&#10;    --num_monte_carlo=50&#10;    --lr=0.1&#10;    --epochs=1000" type="PythonConfigurationType" factoryName="Python">
+      <module name="MassPrediction" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Biying Liu\Documents\GitHub\MassPrediction\virtualenvl_MassPrediction\Scripts\python.exe" />
+      <option name="SDK_NAME" value="Python 3.9 (MassPrediction)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="MoumouPredictionBNN.py" />
+      <option name="PARAMETERS" value="--test-batch-size=1 --mode=train --save_dir=./ --num_monte_carlo=50 --lr=0.1 --epochs=1000" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,7 +103,12 @@
       <updated>1682384856796</updated>
       <workItem from="1682384865322" duration="3130000" />
       <workItem from="1682628803430" duration="2137000" />
-      <workItem from="1682630975294" duration="334000" />
+      <workItem from="1682630975294" duration="5312000" />
+      <workItem from="1683739247177" duration="20000" />
+      <workItem from="1683739277615" duration="158000" />
+      <workItem from="1683739448295" duration="73000" />
+      <workItem from="1683741093334" duration="597000" />
+      <workItem from="1683776110357" duration="711000" />
     </task>
     <task id="LOCAL-00001" summary="try add virtual env">
       <created>1682631168537</created>
@@ -66,17 +117,38 @@
       <option name="project" value="LOCAL" />
       <updated>1682631168537</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="delete test files">
+      <created>1682631372492</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682631372492</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="try add virtual env" />
-    <option name="LAST_COMMIT_MESSAGE" value="try add virtual env" />
+    <MESSAGE value="delete test files" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete test files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MassPrediction$MoumouPrediction_NN.coverage" NAME="MoumouPrediction_NN Coverage Results" MODIFIED="1682631007378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MassPrediction$MoumouPrediction_BNN.coverage" NAME="MoumouPrediction_BNN Coverage Results" MODIFIED="1682632167433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MassPrediction$python_MoumouPredictionBNN_py___test_batch_size_1_______mode__train________save_dir____________num_monte_carlo_50_______lr_0_1_______epochs_1000.coverage" NAME="python MoumouPredictionBNN.py --test-batch-size=1&#10;    --mode=&quot;train&quot;&#10;    --save_dir=&quot;./&quot;&#10;    --num_monte_carlo=50&#10;    --lr=0.1&#10;    --epochs=1000 Coverage Results" MODIFIED="1682632219605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
